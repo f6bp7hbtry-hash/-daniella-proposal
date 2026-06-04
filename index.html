@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Question for Daniella ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow:hidden;
+}
+
+.container{
+    background:white;
+    width:100%;
+    max-width:650px;
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+h1{
+    color:#ff4d88;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:1.05rem;
+    line-height:1.8;
+    color:#444;
+}
+
+.question{
+    margin-top:25px;
+    font-size:1.8rem;
+    font-weight:bold;
+    color:#ff4d88;
+}
+
+.buttons{
+    margin-top:35px;
+    position:relative;
+    height:120px;
+}
+
+button{
+    border:none;
+    padding:15px 30px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+#yesBtn{
+    background:#ff4d88;
+    color:white;
+}
+
+#yesBtn:hover{
+    transform:scale(1.05);
+}
+
+#noBtn{
+    background:#eaeaea;
+    color:#333;
+    position:absolute;
+    left:60%;
+}
+
+.success{
+    display:none;
+}
+
+.success h2{
+    color:#ff4d88;
+    margin-bottom:15px;
+}
+
+.success p{
+    margin-bottom:10px;
+}
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    top:0;
+    left:0;
+}
+
+.heart{
+    position:absolute;
+    font-size:25px;
+    animation:float 4s linear forwards;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-800px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="mainCard">
+
+    <h1>💖 Hi Daniella 💖</h1>
+
+    <p>
+        We've been talking for months now, and every conversation with you
+        has become one of the best parts of my day.
+        <br><br>
+        You've made me smile more times than I can count, and somewhere
+        along the way, you became someone very special to me.
+        <br><br>
+        So I've decided to be brave and ask the question that's been on my mind...
+    </p>
+
+    <div class="question">
+        💕 Can I Be Your Boyfriend? 💕
+    </div>
+
+    <p style="margin-top:15px;">
+        No pressure... but my heart has already submitted its application. 😅❤️
+    </p>
+
+    <div class="buttons">
+        <button id="yesBtn">💖 Yes, Arnold!</button>
+        <button id="noBtn">🙈 No</button>
+    </div>
+
+</div>
+
+<div class="container success" id="successCard">
+
+    <h2>🎉 YAAAY! 🎉</h2>
+
+    <p>
+        You just made Arnold the happiest guy on Earth! ❤️
+    </p>
+
+    <p>
+as you accept this proposal coming from me, you agree to love me unconditionally, see my happiness as you see yours, even though I know you’re very stubborn but I promise to also show you the little bits of love left in me.I want to learn new things about you, study your emotions and feelings so I would know what every action means, also I ask you to help me understand you better by opening up and being more communicative because it is not every time I can be aware of what certain actions of mine has caused you discomfort, lastly the hard girl/nonchalant behavior, leave it somewhere else, I understand you’re trying to protect yourself but you only need protection when you think there’ll a threat in your surroundings but here’s the case where I am here to stay by you, can’t say forever bc forever isn’t promised so just be my baby till whenever and if things goes sideways just be my friend till we get back together and when we fight, don’t be my girlfriend in that moment, take me as your female best friend and communicate my actions to me like you’re gisting your girls. to more dates, constant good morning texts and reassurance, endless laughter and love and beautiful moments together, I love you D
+</p>
+
+
+    <br>
+
+    <h3>Love, Arnold 💕</h3>
+
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+function moveButton(){
+    const maxX = window.innerWidth - 120;
+    const maxY = window.innerHeight - 70;
+
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+}
+
+document.getElementById("yesBtn").addEventListener("click", () => {
+
+    document.getElementById("mainCard").style.display = "none";
+    document.getElementById("successCard").style.display = "block";
+
+    for(let i=0;i<80;i++){
+        setTimeout(createHeart, i * 100);
+    }
+});
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.bottom = "-20px";
+
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+}
+</script>
+
+</body>
+</html>
